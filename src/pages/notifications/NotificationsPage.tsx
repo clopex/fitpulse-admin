@@ -3,7 +3,7 @@ import { useMutation } from '@tanstack/react-query';
 import { sendNotificationApi } from '@/api/notifications.api';
 import { Bell, Send, CheckCircle } from 'lucide-react';
 
-const NOTIFICATION_TYPES = ['system', 'booking', 'class', 'subscription', 'promotion'];
+const NOTIFICATION_TYPES = ['system', 'booking', 'payment', 'reminder'];
 
 export function NotificationsPage() {
   const [form, setForm] = useState({
@@ -31,9 +31,7 @@ export function NotificationsPage() {
       if (!form.user_id.trim()) return;
       sendMutation.mutate({ user_id: form.user_id, type: form.type, title: form.title, body: form.body });
     } else {
-      // Broadcast — backend handles empty user_ids as broadcast
-      // For now send to a known user; in production you'd fetch all user IDs
-      sendMutation.mutate({ type: form.type, title: form.title, body: form.body, user_id: form.user_id || undefined });
+      sendMutation.mutate({ type: form.type, title: form.title, body: form.body });
     }
   };
 
@@ -71,7 +69,7 @@ export function NotificationsPage() {
               {['single', 'all'].map((t) => (
                 <button
                   key={t}
-                  onClick={() => setForm(f => ({ ...f, target: t }))}
+                  onClick={() => setForm(f => ({ ...f, target: t, user_id: t === 'single' ? f.user_id : '' }))}
                   className={`px-4 py-2 rounded-lg text-sm font-medium border transition-colors ${
                     form.target === t
                       ? 'bg-primary text-primary-foreground border-primary'
@@ -82,6 +80,11 @@ export function NotificationsPage() {
                 </button>
               ))}
             </div>
+            <p className="text-xs text-muted-foreground mt-2">
+              {form.target === 'all'
+                ? 'This sends the notification to every active user.'
+                : 'Use a single user UUID to send a targeted notification.'}
+            </p>
           </div>
 
           {/* User ID (single only) */}
