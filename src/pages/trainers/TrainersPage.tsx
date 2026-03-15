@@ -35,7 +35,6 @@ export function TrainersPage() {
         <p className="text-muted-foreground text-sm mt-1">{total} total trainers</p>
       </div>
 
-      {/* Search */}
       <div className="relative">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
         <input
@@ -47,7 +46,6 @@ export function TrainersPage() {
         />
       </div>
 
-      {/* Table */}
       <div className="bg-card border border-border rounded-xl overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">

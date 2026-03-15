@@ -10,7 +10,7 @@ export function NotificationsPage() {
     type: 'system',
     title: '',
     body: '',
-    target: 'all', // 'all' | 'single'
+    target: 'all',
     user_id: '',
   });
   const [success, setSuccess] = useState(false);
@@ -62,7 +62,6 @@ export function NotificationsPage() {
             </div>
           )}
 
-          {/* Target */}
           <div>
             <label className="text-sm font-medium mb-1.5 block">Target</label>
             <div className="flex gap-3">
@@ -87,7 +86,6 @@ export function NotificationsPage() {
             </p>
           </div>
 
-          {/* User ID (single only) */}
           {form.target === 'single' && (
             <div>
               <label className="text-sm font-medium mb-1.5 block">User ID</label>
@@ -101,7 +99,6 @@ export function NotificationsPage() {
             </div>
           )}
 
-          {/* Type */}
           <div>
             <label className="text-sm font-medium mb-1.5 block">Type</label>
             <select
@@ -115,7 +112,6 @@ export function NotificationsPage() {
             </select>
           </div>
 
-          {/* Title */}
           <div>
             <label className="text-sm font-medium mb-1.5 block">Title <span className="text-destructive">*</span></label>
             <input
@@ -127,7 +123,6 @@ export function NotificationsPage() {
             />
           </div>
 
-          {/* Body */}
           <div>
             <label className="text-sm font-medium mb-1.5 block">Message</label>
             <textarea

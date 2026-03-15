@@ -51,7 +51,6 @@ export function SubscriptionsPage() {
         <p className="text-muted-foreground text-sm mt-1">{total} total subscriptions</p>
       </div>
 
-      {/* Stats */}
       {stats && (
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <StatCard icon={TrendingUp} label="Active"    value={stats.active}    color="bg-green-500/10 text-green-500" />
@@ -60,7 +59,6 @@ export function SubscriptionsPage() {
         </div>
       )}
 
-      {/* Search */}
       <div className="relative">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
         <input
@@ -72,7 +70,6 @@ export function SubscriptionsPage() {
         />
       </div>
 
-      {/* Table */}
       <div className="bg-card border border-border rounded-xl overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">

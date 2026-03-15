@@ -43,7 +43,6 @@ export function UsersPage() {
         </div>
       </div>
 
-      {/* Search */}
       <div className="relative">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
         <input
@@ -55,7 +54,6 @@ export function UsersPage() {
         />
       </div>
 
-      {/* Table */}
       <div className="bg-card border border-border rounded-xl overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
@@ -133,7 +131,6 @@ export function UsersPage() {
           </table>
         </div>
 
-        {/* Pagination */}
         {totalPages > 1 && (
           <div className="px-4 py-3 border-t border-border flex items-center justify-between text-sm">
             <span className="text-muted-foreground">Page {page} of {totalPages}</span>
